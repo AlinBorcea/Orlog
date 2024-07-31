@@ -16,6 +16,7 @@ public class Bowl {
     public void generateDieFaces() {
         if (diceLeft <= 0) return;
 
+        dice.clear();
         IntStream nums = new Random().ints(diceLeft, 1, 6);
         nums.forEach(value -> dice.add(DieFace.fromInt(value)));
     }
