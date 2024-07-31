@@ -1,4 +1,6 @@
-package main;
+package main.table;
+
+import main.DieFace;
 
 import java.util.List;
 

@@ -1,8 +1,10 @@
-package main;
+package main.table;
+
+import main.DieFace;
 
 import java.util.List;
 
-public class DefenseFirstStrategy implements ReorderStrategy {
+public class AttackFirstStrategy implements ReorderStrategy {
     @Override
     public void reorder(List<DieFace> dice) {
         List<DieFace> axes = dice.stream().filter(dieFace -> dieFace == DieFace.AX).toList();
@@ -12,10 +14,10 @@ public class DefenseFirstStrategy implements ReorderStrategy {
         List<DieFace> hands = dice.stream().filter(dieFace -> dieFace == DieFace.HAND).toList();
 
         dice.clear();
-        dice.addAll(helmets);
-        dice.addAll(shields);
         dice.addAll(axes);
         dice.addAll(arrows);
+        dice.addAll(helmets);
+        dice.addAll(shields);
         dice.addAll(hands);
     }
 }

@@ -1,9 +1,9 @@
 package test.java;
 
-import main.AttackFirstStrategy;
+import main.table.AttackFirstStrategy;
 import main.Bowl;
-import main.DefenseFirstStrategy;
-import main.Table;
+import main.table.DefenseFirstStrategy;
+import main.table.Table;
 import org.junit.jupiter.api.Test;
 
 public class TestTable {

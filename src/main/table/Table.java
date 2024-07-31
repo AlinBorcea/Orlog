@@ -1,8 +1,9 @@
-package main;
+package main.table;
+
+import main.DieFace;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Table {
     private final List<DieFace> dice = new ArrayList<>(6);
