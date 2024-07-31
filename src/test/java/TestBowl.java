@@ -1,7 +1,7 @@
 package test.java;
 
 import main.Bowl;
-import main.DieFace;
+import main.dice.DieFace;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package test.java;
 
 import main.Bowl;
-import main.DiceInfo;
+import main.dice.DiceInfo;
 import org.junit.jupiter.api.Test;
 
 public class TestDiceInfo {

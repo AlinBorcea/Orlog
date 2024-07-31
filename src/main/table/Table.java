@@ -1,6 +1,6 @@
 package main.table;
 
-import main.DieFace;
+import main.dice.DieFace;
 
 import java.util.ArrayList;
 import java.util.List;

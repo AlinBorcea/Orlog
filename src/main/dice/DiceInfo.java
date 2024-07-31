@@ -1,4 +1,4 @@
-package main;
+package main.dice;
 
 import java.util.List;
 

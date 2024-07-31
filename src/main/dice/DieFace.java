@@ -1,4 +1,4 @@
-package main;
+package main.dice;
 
 public enum DieFace {
     NONE,
