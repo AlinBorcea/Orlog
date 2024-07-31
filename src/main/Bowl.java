@@ -20,4 +20,8 @@ public class Bowl {
         nums.forEach(value -> dice.add(DieFace.fromInt(value)));
     }
 
+    public void decreaseDiceLeft(int amount) {
+        diceLeft -= amount;
+    }
+
 }
