@@ -17,4 +17,15 @@ public class TestBowl {
 
         assert(result.count() == faces.size());
     }
+
+    @Test
+    public void testGenerateAfterDecrease() {
+        Bowl bowl = new Bowl();
+        bowl.generateDieFaces();
+        bowl.decreaseDiceLeft(3);
+        bowl.generateDieFaces();
+
+        List<DieFace> faces = bowl.getDice();
+        assert (faces.size() == 3);
+    }
 }
