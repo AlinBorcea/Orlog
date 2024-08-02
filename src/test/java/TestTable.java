@@ -13,14 +13,12 @@ public class TestTable {
         Table table2 = new Table(new DefenseFirstStrategy());
         Bowl bowl = new Bowl();
 
-        bowl.generateDieFaces();
-        table.getDice().addAll(bowl.getDice());
+        table.dice.addAll(bowl.generateDieFaces());
         table.reorder();
-        table2.getDice().addAll(bowl.getDice());
+        table2.dice.addAll(bowl.generateDieFaces());
         table2.reorder();
 
-        System.out.println(bowl.getDice());
-        System.out.println(table.getDice());
-        System.out.println(table2.getDice());
+        System.out.println(table.dice);
+        System.out.println(table2.dice);
     }
 }

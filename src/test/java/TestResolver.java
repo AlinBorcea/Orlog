@@ -12,10 +12,8 @@ public class TestResolver {
     @Test
     public void testResolver() {
         Bowl bowl = new Bowl();
-        bowl.generateDieFaces();
-        List<DieFace> dice1 = bowl.getDice();
-        bowl.generateDieFaces();
-        List<DieFace> dice2 = bowl.getDice();
+        List<DieFace> dice1 = bowl.generateDieFaces();
+        List<DieFace> dice2 = bowl.generateDieFaces();
 
         Resolver resolver = new Resolver();
         ResolveRoundInfo roundInfo = resolver.resolve(dice1, dice2);

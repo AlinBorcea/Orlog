@@ -8,10 +8,8 @@ public class TestDiceInfo {
     @Test
     public void testDiceInfo() {
         Bowl bowl = new Bowl();
-        bowl.generateDieFaces();
-        DiceInfo info = new DiceInfo(bowl.getDice());
+        DiceInfo info = new DiceInfo(bowl.generateDieFaces());
 
-        System.out.println(bowl.getDice());
         System.out.println(info);
     }
 }

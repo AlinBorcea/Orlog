@@ -1,9 +1,11 @@
 package main;
 
+import main.dice.DieFace;
 import main.table.AttackFirstStrategy;
 import main.table.DefenseFirstStrategy;
 import main.table.Table;
 
+import java.util.List;
 import java.util.Random;
 
 public class Game {
@@ -19,12 +21,12 @@ public class Game {
             System.out.print("Turn " + i + ": ");
             currentPlayer = turnOfPlayer1 ? player1 : player2;
 
-            currentPlayer.bowl.generateDieFaces();
-            currentPlayer.table.getDice().addAll(player1.bowl.getDice());
+            List<DieFace> generatedFaces = currentPlayer.bowl.generateDieFaces();
+            currentPlayer.table.dice.addAll(generatedFaces);
             currentPlayer.table.reorder();
 
             turnOfPlayer1 = !turnOfPlayer1;
-            System.out.println(currentPlayer.table.getDice());
+            System.out.println(currentPlayer.table.dice);
         }
     }
 }

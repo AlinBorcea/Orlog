@@ -11,8 +11,7 @@ public class TestBowl {
     @Test
     public void testGenerate() {
         Bowl bowl = new Bowl();
-        bowl.generateDieFaces();
-        List<DieFace> faces = bowl.getDice();
+        List<DieFace> faces = bowl.generateDieFaces();
         Stream<DieFace> result = faces.stream().filter(dieFace -> dieFace != DieFace.NONE);
 
         assert(result.count() == faces.size());
@@ -23,9 +22,9 @@ public class TestBowl {
         Bowl bowl = new Bowl();
         bowl.generateDieFaces();
         bowl.decreaseDiceLeft(3);
-        bowl.generateDieFaces();
 
-        List<DieFace> faces = bowl.getDice();
+
+        List<DieFace> faces = bowl.generateDieFaces();
         assert (faces.size() == 3);
     }
 }
