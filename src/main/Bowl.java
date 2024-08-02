@@ -8,23 +8,19 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Bowl {
-    private final List<DieFace> dice = new ArrayList<>(6);
     private int diceLeft = 6;
 
-    public List<DieFace> getDice() {
-        return dice;
-    }
+    public List<DieFace> generateDieFaces() {
+        if (diceLeft <= 0) return new ArrayList<>();
 
-    public void generateDieFaces() {
-        if (diceLeft <= 0) return;
-
-        dice.clear();
+        List<DieFace> dice = new ArrayList<>(diceLeft);
         IntStream nums = new Random().ints(diceLeft, 1, 6);
         nums.forEach(value -> dice.add(DieFace.fromInt(value)));
+
+        return dice;
     }
 
     public void decreaseDiceLeft(int amount) {
         diceLeft -= amount;
     }
-
 }
