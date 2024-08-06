@@ -11,14 +11,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    private final Player player1 = new Player(new Table(new AttackFirstStrategy()));
-    private final Player player2 = new Player(new Table(new DefenseFirstStrategy()));
+    private final Player player1 = new Player(new Table(new DefenseFirstStrategy()));
+    private final Player player2 = new Player(new Table(new AttackFirstStrategy()));
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
-
-        Resolver resolver = new Resolver();
-        ResolveRoundInfo roundInfo;
 
         for (int i = 0; i < 2; i++) {
             initPlayer(player1);
@@ -28,16 +25,7 @@ public class Game {
             player2Turn(player2, scanner);
 
             if (i % 2 == 1) {
-                roundInfo = resolver.resolve(player1.table.dice, player2.table.dice);
-                player1.decreaseHealth(roundInfo.playerOneChangeInHealth);
-                player2.decreaseHealth(roundInfo.playerTwoChangeInHealth);
-
-                System.out.println(player1.table.dice);
-                System.out.println(player2.table.dice);
-                System.out.println(roundInfo.playerOneChangeInHealth < roundInfo.playerTwoChangeInHealth ? "You lose!" : "You win!");
-
-                player1.table.dice.clear();
-                player2.table.dice.clear();
+                finishRound();
             }
         }
     }
@@ -52,8 +40,27 @@ public class Game {
     }
 
     private void player2Turn(Player player, Scanner scanner) {
-        System.out.println("Keep first n = ?");
-        int n = scanner.nextInt();
-        player.bowl.decreaseDiceLeft(6 - n);
+        System.out.println(player.table.dice);
+        //System.out.println("Keep first n = ?");
+        //int n = scanner.nextInt();
+        player.bowl.decreaseDiceLeft(6);
+    }
+
+    private void finishRound() {
+        Resolver resolver = new Resolver();
+
+        ResolveRoundInfo roundInfo = resolver.resolve(player1.table.dice, player2.table.dice);
+        player1.decreaseHealth(roundInfo.playerOneChangeInHealth);
+        player2.decreaseHealth(roundInfo.playerTwoChangeInHealth);
+
+        player1.table.reorder();
+        player2.table.reorder();
+
+        System.out.println(player1.table.dice);
+        System.out.println(player2.table.dice);
+        System.out.println("P1 = " + roundInfo.playerOneChangeInHealth + "\nP2 = " + roundInfo.playerTwoChangeInHealth);
+
+        player1.table.dice.clear();
+        player2.table.dice.clear();
     }
 }
